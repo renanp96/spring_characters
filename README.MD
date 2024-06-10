@@ -8,6 +8,8 @@ Este é um projeto de exemplo para uma aplicação de gerenciamento de personage
 - Maven
 - SpringBoot 3 ou superior
 - Docker
+- Intellij IDE
+- MySQL(opcional)
 
 ## Instalação e Configuração
 

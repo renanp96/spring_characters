@@ -6,7 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class CharacterProfile {
+public class EnemyModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,9 +15,9 @@ public class CharacterProfile {
     private String race;
     private String role;
     private Integer level;
-    private Boolean isNPC;
+    private Boolean isBoss;
 
-    public CharacterProfile() {}
+    public EnemyModel() { }
 
     public Long getId() {
         return id;
@@ -32,6 +33,14 @@ public class CharacterProfile {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
     }
 
     public String getRole() {
@@ -50,19 +59,11 @@ public class CharacterProfile {
         this.level = level;
     }
 
-    public Boolean getNPC() {
-        return isNPC;
+    public Boolean getBoss() {
+        return isBoss;
     }
 
-    public void setNPC(Boolean NPC) {
-        isNPC = NPC;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
+    public void setBoss(Boolean boss) {
+        isBoss = boss;
     }
 }
