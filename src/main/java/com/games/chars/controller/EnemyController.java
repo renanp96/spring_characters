@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/enemy")
+@RequestMapping("/public/enemy")
 public class EnemyController {
 
     @Autowired
