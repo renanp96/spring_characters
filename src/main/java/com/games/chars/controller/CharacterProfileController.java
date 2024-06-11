@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/public/character")
+@RequestMapping("/character")
 public class CharacterProfileController {
 
     @Autowired
