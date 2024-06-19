@@ -9,9 +9,22 @@ services:
       - "8080:8080"
     networks:
       - app-network
-    depends_on:
-      - h2
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mysql_data:
