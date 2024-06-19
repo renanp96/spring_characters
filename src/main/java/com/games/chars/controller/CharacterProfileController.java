@@ -1,8 +1,9 @@
 package com.games.chars.controller;
 
 import com.games.chars.models.CharacterProfile;
-import com.games.chars.repository.CharacterProfileRepository;
+import com.games.chars.service.CharacterProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,37 +13,27 @@ import java.util.List;
 public class CharacterProfileController {
 
     @Autowired
-    private CharacterProfileRepository characterProfileRepository;
+    private CharacterProfileService service;
 
-    @GetMapping("/")
-    public List<CharacterProfile> getCharacters(){
-        return characterProfileRepository.findAll();
-    }
-
-    @PostMapping("/")
-    public CharacterProfile addCharacter(@RequestBody CharacterProfile characterProfile) {
-        return characterProfileRepository.save(characterProfile);
+    @GetMapping
+    public List<CharacterProfile> getAllCharacter() {
+        return service.getAllCharacters();
     }
 
     @GetMapping("/{id}")
-    public CharacterProfile getCharacterProfileById(@PathVariable Long id){
-        return characterProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("Character not found: " + id));
+    public ResponseEntity<CharacterProfile> getCharacterByID(@PathVariable Long id) {
+        return service.getCharacterByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}")
-    public CharacterProfile updateCharacterProfile(@PathVariable Long id, @RequestBody CharacterProfile updater) {
-        CharacterProfile character = characterProfileRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Character not found with id: " + id));
-
-        character.setName(updater.getName());
-        character.setRole(updater.getRole());
-        character.setLevel(updater.getLevel());
-
-        return characterProfileRepository.save(character);
+    @PostMapping
+    public CharacterProfile createCharacter(@RequestBody CharacterProfile character) {
+        return service.createCharacter(character);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCharacter(@PathVariable Long id) {
-        characterProfileRepository.deleteById(id);
+    public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
+        service.deleteCharacter(id);
+        return ResponseEntity.ok().build();
     }
+
 }

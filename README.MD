@@ -14,18 +14,16 @@ Este é um projeto de exemplo para uma aplicação de gerenciamento de personage
 ## Instalação e Configuração
 
 1. Clone o repositório do projeto:
-
    ```bash
    git clone https://seu-repositorio/characters.git
 
 2. Navegue até o diretório do projeto:
-
    ```bash
    cd characters
 
 3. Construa o projeto utilizando o Maven:
    ```bash
-   mvn clan install
+   mvn clean install
 
 ## Configuração do Banco de Dados
 
@@ -35,7 +33,7 @@ Este projeto utiliza um bando de dados H2 em memória por padrão. Não é neces
 
 1. Construa a imagem Docker do projeto:
    ```bash
-   docker build -t characters-app
+   docker build -t characters-app .
 
 2. Execute o container Docker:
    ```bash
