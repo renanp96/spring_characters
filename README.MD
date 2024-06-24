@@ -33,11 +33,11 @@ Este projeto utiliza um bando de dados H2 em memória por padrão. Não é neces
 
 1. Construa a imagem Docker do projeto:
    ```bash
-   docker build -t characters-app .
+   docker-compose build
 
 2. Execute o container Docker:
    ```bash
-   docker run -p 8080:8080 characters-app
+   docker-compose up
 
 # Uso
 
