@@ -21,17 +21,24 @@ public class CharacterProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     private String name;
 
-    @NotBlank
     private String gender;
 
-    @NotBlank
     private String race;
 
-    @NotBlank
-    private String role;
+    @NotNull
+    private String charClass;
+
+    @NotNull
+    private Integer charLevel;
+
+    @NotNull
+    private Integer lifePoints;
+
+    @NotNull
+    private Integer manaPoints;
 
     @NotNull
     private Boolean isNpc;

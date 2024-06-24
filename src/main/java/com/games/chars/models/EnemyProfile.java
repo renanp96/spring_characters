@@ -27,7 +27,16 @@ public class EnemyProfile {
     private String race;
 
     @NotNull
-    private Integer level;
+    private String enemyClass;
+
+    @NotNull
+    private Integer enemyLevel;
+
+    @NotNull
+    private Integer lifePoints;
+
+    @NotNull
+    private Integer manaPoints;
 
     private Boolean isBoss;
 
